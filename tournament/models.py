@@ -20,7 +20,7 @@ class Team(models.Model):
     league = models.ForeignKey(League, on_delete=models.CASCADE, related_name="teams")
 
     class Meta:
-        ordering = ["rating", "name"]
+        ordering = ["-rating", "name"]
 
     def __str__(self):
         return self.name
@@ -31,6 +31,7 @@ class Player(AbstractUser):
     score = models.IntegerField(default=0)
 
     class Meta:
+        ordering = ["-score", "username"]
         verbose_name = "player"
         verbose_name_plural = "players"
 
