@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Team list
+  </h1>
+
+  {% if league_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Country</th>
+      </tr>
+
+      {% for league in league_list %}
+        <tr>
+          <td>
+              {{ league.id }}
+          </td>
+          <td>
+              {{ league.name }}
+          </td>
+          <td>
+              {{ league.country }}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    There are no leagues in tournament
+  {% endif %}
+
+{% endblock %}

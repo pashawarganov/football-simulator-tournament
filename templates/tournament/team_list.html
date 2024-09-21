@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Team list
+  </h1>
+
+  {% if team_list %}
+    <ul>
+      {% for team in team_list %}
+        <li>
+          <a href="#">{{ team.id }}</a>
+          {{ team.name }} ({{ team.league.name }})
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    There are no teams in tournament
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Team list
+  </h1>
+
+  {% if player_list %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Score</th>
+      </tr>
+
+      {% for player in player_list %}
+        <tr>
+          <td>
+            {{ player.id }}
+          </td>
+          <td>
+            {{ player.username }}
+          </td>
+          <td>
+            {{ player.first_name }}
+          </td>
+          <td>
+            {{ player.last_name }}
+          </td>
+          <td>
+            {{ player.score }}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    There are no players in tournament
+  {% endif %}
+
+{% endblock %}

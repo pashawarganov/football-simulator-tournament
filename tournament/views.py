@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import ListView
 
 from tournament.models import Player, Team, GameSession, League
 
@@ -19,3 +20,30 @@ def index(request):
     }
 
     return render(request, "tournament/index.html", context=context)
+
+
+class LeagueListView(ListView):
+    model = League
+    context_object_name = "league_list"
+    paginate_by = 5
+
+
+class TeamListView(ListView):
+    model = Team
+    context_object_name = "team_list"
+    paginate_by = 5
+    queryset = Team.objects.select_related("league")
+
+
+class GameSessionListView(ListView):
+    model = GameSession
+    context_object_name = "game_session_list"
+    template_name = "tournament/game_session_list.html"
+    paginate_by = 5
+    queryset = GameSession.objects.select_related("team", "player")
+
+
+class PlayerListView(ListView):
+    model = Player
+    context_object_name = "player_list"
+    paginate_by = 5
