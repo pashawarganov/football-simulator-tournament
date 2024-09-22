@@ -12,4 +12,13 @@
   <p><strong>Points:</strong> {{ player.points }}</p>
   <p><strong>Score:</strong> {{ player.score }}</p>
   
+  <h3>Game sessions</h3>
+  {% for game_session in player.game_sessions.all %}
+    <hr>
+    <p><strong>Team:</strong> {{ game_session.team.name }}</p>
+    <p><strong>Date:</strong> {{ game_session.date }}</p>
+    <p><strong>Last stage:</strong> {{ game_session.last_stage }}</p>
+    <p><strong>Score:</strong> {{ game_session.score }}</p>
+  {% endfor %}
+  
 {% endblock %}
