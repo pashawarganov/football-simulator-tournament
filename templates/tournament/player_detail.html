@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>
+    <strong>{{ player.username }}</strong>
+  </h1>
+  <p><strong>Full name:</strong> {{ player.first_name }} {{ player.last_name }}</p>
+  
+  <hr>
+  
+  <p><strong>Points:</strong> {{ player.points }}</p>
+  <p><strong>Score:</strong> {{ player.score }}</p>
+  
+{% endblock %}

@@ -21,7 +21,7 @@
             {{ player.id }}
           </td>
           <td>
-            {{ player.username }}
+            <a href="{{ player.get_absolute_url }}">{{ player.username }}</a>
           </td>
           <td>
             {{ player.first_name }}

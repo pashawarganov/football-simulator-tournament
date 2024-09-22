@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from tournament.models import Player, Team, GameSession, League
 
@@ -47,3 +47,8 @@ class PlayerListView(ListView):
     model = Player
     context_object_name = "player_list"
     paginate_by = 5
+
+
+class PlayerDetailView(DetailView):
+    model = Player
+

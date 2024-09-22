@@ -38,6 +38,9 @@ class Player(AbstractUser):
     def __str__(self):
         return f"{self.username} ({self.first_name} {self.last_name})"
 
+    def get_absolute_url(self):
+        return reverse("tournament:player-detail", kwargs={"pk": self.pk})
+
 
 class GameSession(models.Model):
     date = models.DateField(auto_now_add=True)
