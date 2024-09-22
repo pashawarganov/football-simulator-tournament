@@ -9,7 +9,7 @@
     <ul>
       {% for team in team_list %}
         <li>
-          <a href="#">{{ team.id }}</a>
+          <a href="{% url 'tournament:team-detail' pk=team.id %}">{{ team.id }}</a>
           {{ team.name }} ({{ team.league.name }})
         </li>
       {% endfor %}

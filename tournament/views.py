@@ -35,12 +35,21 @@ class TeamListView(ListView):
     queryset = Team.objects.select_related("league")
 
 
+class TeamDetailView(DetailView):
+    model = Team
+
+
 class GameSessionListView(ListView):
     model = GameSession
     context_object_name = "game_session_list"
     template_name = "tournament/game_session_list.html"
     paginate_by = 5
     queryset = GameSession.objects.select_related("team", "player")
+
+class GameSessionDetailView(DetailView):
+    model = GameSession
+    template_name = "tournament/game_session_detail.html"
+    context_object_name = "game_session"
 
 
 class PlayerListView(ListView):

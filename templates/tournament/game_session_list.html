@@ -9,7 +9,7 @@
     <ul>
       {% for game_session in game_session_list %}
         <li>
-          <a href="#">{{ game_session.id }}</a>
+          <a href="{% url 'tournament:game-session-detail' pk=game_session.id %}">{{ game_session.id }}</a>
           {{ game_session.player.username }} - {{ game_session.team.name }} ({{ game_session.date }})
         </li>
       {% endfor %}
