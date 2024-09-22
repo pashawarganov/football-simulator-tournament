@@ -14,4 +14,7 @@
   <p><strong>Win:</strong> {{ game_session.win }}</p>
   <p><strong>Score:</strong> {{ game_session.score }}</p>
   
+  <a href="{% url 'tournament:game-session-update' pk=game_session.id %}" class="btn btn-primary">Update</a>
+  <a href="{% url 'tournament:game-session-delete' pk=game_session.id %}" class="btn btn-danger">Delete</a>
+  
 {% endblock %}

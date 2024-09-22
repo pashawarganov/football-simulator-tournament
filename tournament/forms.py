@@ -1,6 +1,7 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
 
-from tournament.models import Team, League, Player, GameSession
+from tournament.models import Player
 
 
 class LeagueSearchForm(forms.Form):
@@ -54,3 +55,18 @@ class GameSessionSearchForm(forms.Form):
         ),
         input_formats=["%Y-%m-%d"]
     )
+
+
+class PlayerCreationForm(UserCreationForm):
+    class Meta:
+        model = Player
+        fields = UserCreationForm.Meta.fields + (
+            "first_name",
+            "last_name",
+        )
+
+
+class PlayerScoreUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Player
+        fields = ["score", "points"]

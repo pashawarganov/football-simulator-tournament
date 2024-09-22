@@ -3,8 +3,9 @@
 {% block content %}
   <h1>
     League list
+    <a href="{% url 'tournament:league-create' %}">+</a>
   </h1>
-  
+
   {% include "includes/search_form.html" %}
 
   {% if league_list %}
@@ -13,18 +14,26 @@
         <th>ID</th>
         <th>Name</th>
         <th>Country</th>
+        <th>Update</th>
+        <th>Delete</th>
       </tr>
 
       {% for league in league_list %}
         <tr>
           <td>
-              {{ league.id }}
+            {{ league.id }}
           </td>
           <td>
-              {{ league.name }}
+            {{ league.name }}
           </td>
           <td>
-              {{ league.country }}
+            {{ league.country }}
+          </td>
+          <td>
+            <a href="{% url 'tournament:league-update' pk=league.id %}">Update</a>
+          </td>
+          <td>
+            <a href="{% url 'tournament:league-delete' pk=league.id %}">Delete</a>
           </td>
         </tr>
       {% endfor %}

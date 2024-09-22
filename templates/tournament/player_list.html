@@ -2,9 +2,10 @@
 
 {% block content %}
   <h1>
-    Team list
+    Player list
+    <a href="{% url 'tournament:player-create' %}">+</a>
   </h1>
-  
+
   {% include "includes/search_form.html" %}
 
   {% if player_list %}

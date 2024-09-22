@@ -21,4 +21,7 @@
     <p><strong>Score:</strong> {{ game_session.score }}</p>
   {% endfor %}
   
+  <a href="{% url 'tournament:player-update' pk=player.id %}" class="btn btn-primary">Update</a>
+  <a href="{% url 'tournament:player-delete' pk=player.id %}" class="btn btn-danger">Delete</a>
+  
 {% endblock %}

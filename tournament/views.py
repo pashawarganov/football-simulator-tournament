@@ -1,11 +1,14 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from tournament.forms import (
     LeagueSearchForm,
     TeamSearchForm,
     GameSessionSearchForm,
-    PlayerSearchForm
+    PlayerSearchForm,
+    PlayerCreationForm,
+    PlayerScoreUpdateForm
 )
 from tournament.models import Player, Team, GameSession, League
 
@@ -55,6 +58,23 @@ class LeagueListView(ListView):
         return self.queryset
 
 
+class LeagueCreationView(CreateView):
+    model = League
+    fields = "__all__"
+    success_url = reverse_lazy("tournament:league-list")
+
+
+class LeagueUpdateView(UpdateView):
+    model = League
+    fields = "__all__"
+    success_url = reverse_lazy("tournament:league-list")
+
+
+class LeagueDeleteView(DeleteView):
+    model = League
+    success_url = reverse_lazy("tournament:league-list")
+
+
 class TeamListView(ListView):
     model = Team
     context_object_name = "team_list"
@@ -80,6 +100,23 @@ class TeamListView(ListView):
 
 class TeamDetailView(DetailView):
     model = Team
+
+
+class TeamCreationView(CreateView):
+    model = Team
+    fields = "__all__"
+    success_url = reverse_lazy("tournament:team-list")
+
+
+class TeamUpdateView(UpdateView):
+    model = Team
+    fields = "__all__"
+    success_url = reverse_lazy("tournament:team-list")
+
+
+class TeamDeleteView(DeleteView):
+    model = Team
+    success_url = reverse_lazy("tournament:team-list")
 
 
 class GameSessionListView(ListView):
@@ -113,6 +150,26 @@ class GameSessionDetailView(DetailView):
     context_object_name = "game_session"
 
 
+class GameSessionCreationView(CreateView):
+    model = GameSession
+    fields = "__all__"
+    template_name = "tournament/game_session_form.html"
+    success_url = reverse_lazy("tournament:game-session-list")
+
+
+class GameSessionUpdateView(UpdateView):
+    model = GameSession
+    fields = "__all__"
+    template_name = "tournament/game_session_form.html"
+    success_url = reverse_lazy("tournament:game-session-list")
+
+
+class GameSessionDeleteView(DeleteView):
+    model = GameSession
+    template_name = "tournament/game_session_confirm_delete.html"
+    success_url = reverse_lazy("tournament:game-session-list")
+
+
 class PlayerListView(ListView):
     model = Player
     context_object_name = "player_list"
@@ -139,3 +196,19 @@ class PlayerListView(ListView):
 class PlayerDetailView(DetailView):
     model = Player
 
+
+class PlayerCreateView(CreateView):
+    model = Player
+    form_class = PlayerCreationForm
+    success_url = reverse_lazy("tournament:player-list")
+
+
+class PlayerUpdateView(UpdateView):
+    model = Player
+    form_class = PlayerScoreUpdateForm
+    success_url = reverse_lazy("tournament:player-list")
+
+
+class PlayerDeleteView(DeleteView):
+    model = Player
+    success_url = reverse_lazy("tournament:player-list")

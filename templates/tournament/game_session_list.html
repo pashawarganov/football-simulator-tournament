@@ -3,8 +3,9 @@
 {% block content %}
   <h1>
     Game session list
+    <a href="{% url 'tournament:game-session-create' %}">+</a>
   </h1>
-  
+
   {% include "includes/search_form.html" %}
 
   {% if game_session_list %}
