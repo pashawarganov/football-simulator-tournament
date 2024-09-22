@@ -1,3 +1,5 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -13,6 +15,7 @@ from tournament.forms import (
 from tournament.models import Player, Team, GameSession, League
 
 
+@login_required
 def index(request):
     """View function for the home page of the site."""
 
@@ -35,7 +38,7 @@ def index(request):
     return render(request, "tournament/index.html", context=context)
 
 
-class LeagueListView(ListView):
+class LeagueListView(LoginRequiredMixin, ListView):
     model = League
     context_object_name = "league_list"
     paginate_by = 5
@@ -58,24 +61,24 @@ class LeagueListView(ListView):
         return self.queryset
 
 
-class LeagueCreationView(CreateView):
+class LeagueCreationView(LoginRequiredMixin, CreateView):
     model = League
     fields = "__all__"
     success_url = reverse_lazy("tournament:league-list")
 
 
-class LeagueUpdateView(UpdateView):
+class LeagueUpdateView(LoginRequiredMixin, UpdateView):
     model = League
     fields = "__all__"
     success_url = reverse_lazy("tournament:league-list")
 
 
-class LeagueDeleteView(DeleteView):
+class LeagueDeleteView(LoginRequiredMixin, DeleteView):
     model = League
     success_url = reverse_lazy("tournament:league-list")
 
 
-class TeamListView(ListView):
+class TeamListView(LoginRequiredMixin, ListView):
     model = Team
     context_object_name = "team_list"
     paginate_by = 5
@@ -98,28 +101,28 @@ class TeamListView(ListView):
         return self.queryset
 
 
-class TeamDetailView(DetailView):
+class TeamDetailView(LoginRequiredMixin, DetailView):
     model = Team
 
 
-class TeamCreationView(CreateView):
-    model = Team
-    fields = "__all__"
-    success_url = reverse_lazy("tournament:team-list")
-
-
-class TeamUpdateView(UpdateView):
+class TeamCreationView(LoginRequiredMixin, CreateView):
     model = Team
     fields = "__all__"
     success_url = reverse_lazy("tournament:team-list")
 
 
-class TeamDeleteView(DeleteView):
+class TeamUpdateView(LoginRequiredMixin, UpdateView):
+    model = Team
+    fields = "__all__"
+    success_url = reverse_lazy("tournament:team-list")
+
+
+class TeamDeleteView(LoginRequiredMixin, DeleteView):
     model = Team
     success_url = reverse_lazy("tournament:team-list")
 
 
-class GameSessionListView(ListView):
+class GameSessionListView(LoginRequiredMixin, ListView):
     model = GameSession
     context_object_name = "game_session_list"
     template_name = "tournament/game_session_list.html"
@@ -144,33 +147,33 @@ class GameSessionListView(ListView):
                 )
         return self.queryset
 
-class GameSessionDetailView(DetailView):
+class GameSessionDetailView(LoginRequiredMixin, DetailView):
     model = GameSession
     template_name = "tournament/game_session_detail.html"
     context_object_name = "game_session"
 
 
-class GameSessionCreationView(CreateView):
+class GameSessionCreationView(LoginRequiredMixin, CreateView):
     model = GameSession
     fields = "__all__"
     template_name = "tournament/game_session_form.html"
     success_url = reverse_lazy("tournament:game-session-list")
 
 
-class GameSessionUpdateView(UpdateView):
+class GameSessionUpdateView(LoginRequiredMixin, UpdateView):
     model = GameSession
     fields = "__all__"
     template_name = "tournament/game_session_form.html"
     success_url = reverse_lazy("tournament:game-session-list")
 
 
-class GameSessionDeleteView(DeleteView):
+class GameSessionDeleteView(LoginRequiredMixin, DeleteView):
     model = GameSession
     template_name = "tournament/game_session_confirm_delete.html"
     success_url = reverse_lazy("tournament:game-session-list")
 
 
-class PlayerListView(ListView):
+class PlayerListView(LoginRequiredMixin, ListView):
     model = Player
     context_object_name = "player_list"
     paginate_by = 5
@@ -193,22 +196,22 @@ class PlayerListView(ListView):
         return self.queryset
 
 
-class PlayerDetailView(DetailView):
+class PlayerDetailView(LoginRequiredMixin, DetailView):
     model = Player
 
 
-class PlayerCreateView(CreateView):
+class PlayerCreateView(LoginRequiredMixin, CreateView):
     model = Player
     form_class = PlayerCreationForm
     success_url = reverse_lazy("tournament:player-list")
 
 
-class PlayerUpdateView(UpdateView):
+class PlayerUpdateView(LoginRequiredMixin, UpdateView):
     model = Player
     form_class = PlayerScoreUpdateForm
     success_url = reverse_lazy("tournament:player-list")
 
 
-class PlayerDeleteView(DeleteView):
+class PlayerDeleteView(LoginRequiredMixin, DeleteView):
     model = Player
     success_url = reverse_lazy("tournament:player-list")
