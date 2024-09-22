@@ -12,11 +12,15 @@ def index(request):
     num_game_sessions = GameSession.objects.count()
     num_leagues = League.objects.count()
 
+    num_visits = request.session.get("num_visits", 0)
+    request.session["num_visits"] = num_visits + 1
+
     context = {
         "num_players": num_players,
         "num_teams": num_teams,
         "num_game_sessions": num_game_sessions,
         "num_leagues": num_leagues,
+        "num_visits": num_visits,
     }
 
     return render(request, "tournament/index.html", context=context)
