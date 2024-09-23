@@ -61,4 +61,4 @@ class GameSession(models.Model):
         self.player.save()
 
     def __str__(self):
-        return f"{self.player} - {self.team} ({self.date})"
+        return f"{self.player.username} - {self.team.name} ({self.date})"
