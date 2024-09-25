@@ -1,0 +1,367 @@
+[
+  {
+    "model": "tournament.team",
+    "pk": 1,
+    "fields": {
+      "name": "Manchester United",
+      "rating": 5,
+      "league": 2
+    }
+  },
+  {
+    "model": "tournament.team",
+    "pk": 2,
+    "fields": {
+      "name": "Manchester City",
+      "rating": 5,
+      "league": 2
+    }
+  },
+  {
+    "model": "tournament.team",
+    "pk": 3,
+    "fields": {
+      "name": "Juventus",
+      "rating": 5,
+      "league": 4
+    }
+  },
+  {
+    "model": "tournament.team",
+    "pk": 4,
+    "fields": {
+      "name": "Tottenham",
+      "rating": 5,
+      "league": 2
+    }
+  },
+  {
+    "model": "tournament.team",
+    "pk": 5,
+    "fields": {
+      "name": "Barcelona",
+      "rating": 5,
+      "league": 1
+    }
+  },
+  {
+    "model": "tournament.team",
+    "pk": 6,
+    "fields": {
+      "name": "Atletico Madrid",
+      "rating": 5,
+      "league": 1
+    }
+  },
+  {
+    "model": "tournament.team",
+    "pk": 7,
+    "fields": {
+      "name": "Real Madrid",
+      "rating": 5,
+      "league": 1
+    }
+  },
+  {
+    "model": "tournament.team",
+    "pk": 8,
+    "fields": {
+      "name": "Borussia Dortmund",
+      "rating": 5,
+      "league": 3
+    }
+  },
+  {
+    "model": "tournament.team",
+    "pk": 9,
+    "fields": {
+      "name": "Arsenal",
+      "rating": 5,
+      "league": 2
+    }
+  },
+  {
+    "model": "tournament.team",
+    "pk": 10,
+    "fields": {
+      "name": "Newcastle United",
+      "rating": 4,
+      "league": 7
+    }
+  },
+  {
+    "model": "tournament.team",
+    "pk": 11,
+    "fields": {
+      "name": "Liverpool",
+      "rating": 5,
+      "league": 2
+    }
+  },
+  {
+    "model": "tournament.team",
+    "pk": 12,
+    "fields": {
+      "name": "Brighton & Hove Albion",
+      "rating": 3,
+      "league": 7
+    }
+  },
+  {
+    "model": "tournament.team",
+    "pk": 13,
+    "fields": {
+      "name": "Aston Villa",
+      "rating": 4,
+      "league": 7
+    }
+  },
+  {
+    "model": "tournament.team",
+    "pk": 14,
+    "fields": {
+      "name": "Crystal Palace",
+      "rating": 4,
+      "league": 2
+    }
+  },
+  {
+    "model": "tournament.team",
+    "pk": 15,
+    "fields": {
+      "name": "Chelsea",
+      "rating": 5,
+      "league": 2
+    }
+  },
+  {
+    "model": "tournament.league",
+    "pk": 1,
+    "fields": {
+      "name": "La Liga",
+      "country": "Spain"
+    }
+  },
+  {
+    "model": "tournament.league",
+    "pk": 2,
+    "fields": {
+      "name": "Premier League",
+      "country": "England"
+    }
+  },
+  {
+    "model": "tournament.league",
+    "pk": 3,
+    "fields": {
+      "name": "Bundesliga",
+      "country": "Germany"
+    }
+  },
+  {
+    "model": "tournament.league",
+    "pk": 4,
+    "fields": {
+      "name": "Serie A",
+      "country": "Italy"
+    }
+  },
+  {
+    "model": "tournament.league",
+    "pk": 5,
+    "fields": {
+      "name": "Ligue 1",
+      "country": "France"
+    }
+  },
+  {
+    "model": "tournament.league",
+    "pk": 6,
+    "fields": {
+      "name": "Eredivisie",
+      "country": "Netherlands"
+    }
+  },
+  {
+    "model": "tournament.league",
+    "pk": 7,
+    "fields": {
+      "name": "Championship",
+      "country": "England"
+    }
+  },
+  {
+    "model": "tournament.player",
+    "pk": 1,
+    "fields": {
+      "username": "admin",
+      "email": "tournament1@example.com",
+      "password": "pbkdf2_sha256$870000$pRVS0GxWKEQSNUGQ5kJ8A3$RwhGkpgYe+JNanAx250iDVxeuFihIzz3/izfJvCTrdk=",
+      "first_name": "Pasha",
+      "last_name": "Var",
+      "is_superuser": true,
+      "is_staff": true,
+      "is_active": true,
+      "points": 0,
+      "score": 0,
+      "date_joined": "2024-09-01T10:00:00Z",
+      "last_login": "2024-09-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "tournament.player",
+    "pk": 2,
+    "fields": {
+      "username": "bond777",
+      "email": "player2@example.com",
+      "password": "pbkdf2_sha256$260000$9Nsj209nBsmlsLsm029H0$lxOjS10wpqlxPxDjsos29m30wns/fdfwe",
+      "first_name": "Ivan",
+      "last_name": "Bond",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "points": 0,
+      "score": 0,
+      "date_joined": "2024-09-01T12:00:00Z",
+      "last_login": "2024-09-17T14:00:00Z"
+    }
+  },
+  {
+    "model": "tournament.player",
+    "pk": 3,
+    "fields": {
+      "username": "bogpaw",
+      "email": "player3@example.com",
+      "password": "pbkdf2_sha256$260000$sleij092jNnX02sMn3jwxL$sowXj2390239ePdwoem30DwnxsoZpdJ02",
+      "first_name": "Bohdan",
+      "last_name": "Pav",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "points": 0,
+      "score": 0,
+      "date_joined": "2024-09-05T15:00:00Z",
+      "last_login": "2024-09-18T15:00:00Z"
+    }
+  },
+  {
+    "model": "tournament.player",
+    "pk": 4,
+    "fields": {
+      "username": "iakov_3",
+      "email": "player4@example.com",
+      "password": "pbkdf2_sha256$260000$sleij092jNnX02sMn3jwxL$sowXj2390239ePdwoem30DwnxsoZpdJ02",
+      "first_name": "Alex",
+      "last_name": "Iakov",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "points": 0,
+      "score": 0,
+      "date_joined": "2024-09-05T15:00:00Z",
+      "last_login": "2024-09-18T15:00:00Z"
+    }
+  },
+  {
+    "model": "tournament.player",
+    "pk": 5,
+    "fields": {
+      "username": "john_7",
+      "email": "player5@example.com",
+      "password": "pbkdf2_sha256$260000$sleij092jNnX02sMn3jwxL$sowXj2390239ePdwoem30DwnxsoZpdJ02",
+      "first_name": "John",
+      "last_name": "James",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "points": 3,
+      "score": 3,
+      "date_joined": "2024-09-05T15:00:00Z",
+      "last_login": "2024-09-18T15:00:00Z"
+    }
+  },
+  {
+    "model": "tournament.player",
+    "pk": 6,
+    "fields": {
+      "username": "michael_no_jackson",
+      "email": "player6@example.com",
+      "password": "pbkdf2_sha256$260000$sleij092jNnX02sMn3jwxL$sowXj2390239ePdwoem30DwnxsoZpdJ02",
+      "first_name": "Michael",
+      "last_name": "Johnson",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "points": 3,
+      "score": 3,
+      "date_joined": "2024-09-05T15:00:00Z",
+      "last_login": "2024-09-18T15:00:00Z"
+    }
+  },
+  {
+    "model": "tournament.player",
+    "pk": 7,
+    "fields": {
+      "username": "q_jane_q",
+      "email": "player7@example.com",
+      "password": "pbkdf2_sha256$260000$sleij092jNnX02sMn3jwxL$sowXj2390239ePdwoem30DwnxsoZpdJ02",
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "points": 4,
+      "score": 4,
+      "date_joined": "2024-09-05T15:00:00Z",
+      "last_login": "2024-09-18T15:00:00Z"
+    }
+  },
+  {
+    "model": "tournament.gamesession",
+    "pk": 1,
+    "fields": {
+      "date": "2024-09-23",
+      "player": 5,
+      "team": 5,
+      "score": 1,
+      "last_stage": "round of 16",
+      "win": false
+    }
+  },
+  {
+    "model": "tournament.gamesession",
+    "pk": 2,
+    "fields": {
+      "player": 5,
+      "team": 2,
+      "score": 2,
+      "win": true,
+      "last_stage": "final",
+      "date": "2024-09-23"
+    }
+  },
+  {
+    "model": "tournament.gamesession",
+    "pk": 3,
+    "fields": {
+      "player": 6,
+      "team": 1,
+      "score": 3,
+      "win": false,
+      "last_stage": "semi-final",
+      "date": "2024-09-24"
+    }
+  },
+  {
+    "model": "tournament.gamesession",
+    "pk": 4,
+    "fields": {
+      "player": 7,
+      "team": 3,
+      "score": 4,
+      "win": true,
+      "last_stage": "quarter-final",
+      "date": "2024-09-25"
+    }
+  }
+]

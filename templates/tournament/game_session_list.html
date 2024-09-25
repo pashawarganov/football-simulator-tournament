@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Game session list
+    <a href="{% url 'tournament:game-session-create' %}">+</a>
+  </h1>
+
+  {% include "includes/search_form.html" %}
+
+  {% if game_session_list %}
+    <ul>
+      {% for game_session in game_session_list %}
+        <li>
+          <a href="{% url 'tournament:game-session-detail' pk=game_session.id %}">{{ game_session.id }}</a>
+          {{ game_session.player.username }} - {{ game_session.team.name }} ({{ game_session.date }})
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    There are no game_sessions in tournament
+  {% endif %}
+
+{% endblock %}
