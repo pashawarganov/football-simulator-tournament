@@ -6,6 +6,10 @@ Django project for managing game session in Champion League football simulator
 
 [Football simulator tournament project deployed to render](https://football-simulator-tournament.onrender.com)
 
+You can use following user:
+- Login: michael_no_jackson
+- Password: 1qazxcde3
+
 ## Installation
 
 Python3 must be already installed
