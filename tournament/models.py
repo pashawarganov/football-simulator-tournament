@@ -41,6 +41,11 @@ class Player(AbstractUser):
     def get_absolute_url(self):
         return reverse("tournament:player-detail", kwargs={"pk": self.pk})
 
+    def add_points_and_score(self, score):
+        self.points += score
+        self.score += score
+        self.save()
+
 
 class GameSession(models.Model):
     date = models.DateField(auto_now_add=True)
@@ -56,9 +61,7 @@ class GameSession(models.Model):
     def save(self, *args, **kwargs):
         super(GameSession, self).save(*args, **kwargs)
 
-        self.player.score += self.score
-        self.player.points += self.score
-        self.player.save()
+        self.player.add_points_and_score(self.score)
 
     def __str__(self):
         return f"{self.player.username} - {self.team.name} ({self.date})"
