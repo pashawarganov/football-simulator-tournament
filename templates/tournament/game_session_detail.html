@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>
+    {{ game_session.id }} - {{ game_session.date }}
+  </h1>
+  <p><strong>Player:</strong> {{ game_session.player.username}} ({{ game_session.player.first_name }} {{ game_session.player.last_name }})</p>
+  <p><strong>Team:</strong> {{ game_session.team.name }}</p>
+  
+  <hr>
+  
+  <p><strong>Last stage:</strong> {{ game_session.last_stage }}</p>
+  <p><strong>Win:</strong> {{ game_session.win }}</p>
+  <p><strong>Score:</strong> {{ game_session.score }}</p>
+  
+  <a href="{% url 'tournament:game-session-update' pk=game_session.id %}" class="btn btn-primary">Update</a>
+  <a href="{% url 'tournament:game-session-delete' pk=game_session.id %}" class="btn btn-danger">Delete</a>
+  
+{% endblock %}

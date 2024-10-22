@@ -1,0 +1,51 @@
+<nav
+    class="navbar navbar-expand-lg position-relative navbar-dark top-0 mb-3 z-index-3 w-100 shadow-none navbar-light bg-info font-weight-bold">
+  <div class="container">
+    <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
+      <ul class="navbar-nav navbar-nav-hover mx-auto">
+        <li class="nav-item mx-2"><a href="{% url 'tournament:index' %}" role="button"
+                                     class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center text-dark notification"
+                                     id="dropdownMenuDocs"> Home <span class="badge"> </span> </a></li>
+        <li class="nav-item mx-2"><a href="{% url 'tournament:league-list' %}" role="button"
+                                     class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center text-dark notification"
+                                     id="dropdownMenuDocs"> All leagues <span class="badge"> </span> </a></li>
+        <li class="nav-item mx-2"><a href="{% url 'tournament:team-list' %}" role="button"
+                                     class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center text-dark notification"
+                                     id="dropdownMenuDocs"> All teams <span class="badge"> </span> </a></li>
+        <li class="nav-item mx-2"><a href="{% url 'tournament:player-list' %}" role="button"
+                                     class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center text-dark notification"
+                                     id="dropdownMenuDocs"> All players <span class="badge"> </span> </a></li>
+        <li class="nav-item mx-2"><a href="{% url 'tournament:game-session-list' %}" role="button"
+                                     class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center text-dark notification"
+                                     id="dropdownMenuDocs"> All game sessions <span class="badge"> </span> </a></li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon mx-2 text-white rounded" href="{{ user.get_absolute_url }}">
+              <i class="fa fa-sign-in me-1" aria-hidden="true"></i>
+              <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                 title="" data-bs-original-title="User name">{{ user.get_username }}</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <form action="{% url 'logout' %}?next={{ request.path }}" method="post" class="d-inline">
+              {% csrf_token %}
+              <button class="nav-link ps-2 text-dark border-0 bg-transparent cursor-pointer font-weight-bold"
+                      type="submit">Logout
+              </button>
+            </form>
+          </li>
+        {% else %}
+          <li class="nav-item"><a class="nav-link nav-link-icon mx-2 text-dark"
+                                  href="{% url 'login' %}?next={{ request.path }} "> <i
+              class="fa fa-sign-in me-1" aria-hidden="true"></i>
+            <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom"
+               title="" data-bs-original-title="Sign IN">Log in</p></a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

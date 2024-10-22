@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>
+    <strong>{{ player.username }}</strong>
+  </h1>
+  <p><strong>Full name:</strong> {{ player.first_name }} {{ player.last_name }}</p>
+  
+  <hr>
+  
+  <p><strong>Points:</strong> {{ player.points }}</p>
+  <p><strong>Score:</strong> {{ player.score }}</p>
+  
+  <h3>Game sessions</h3>
+  {% for game_session in player.game_sessions.all %}
+    <hr>
+    <p><strong>Team:</strong> {{ game_session.team.name }}</p>
+    <p><strong>Date:</strong> {{ game_session.date }}</p>
+    <p><strong>Last stage:</strong> {{ game_session.last_stage }}</p>
+    <p><strong>Score:</strong> {{ game_session.score }}</p>
+  {% endfor %}
+  
+  <a href="{% url 'tournament:player-update' pk=player.id %}" class="btn btn-primary">Update</a>
+  <a href="{% url 'tournament:player-delete' pk=player.id %}" class="btn btn-danger">Delete</a>
+  
+{% endblock %}
