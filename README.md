@@ -15,7 +15,7 @@ You can use following user:
 Python3 must be already installed
 
 ```shell
-git clone <link>
+git clone https://github.com/pashawarganov/football-simulator-tournament.git
 cd football-simulator-tournament
 python3 -m venv venv
 source venv/bin/activate
